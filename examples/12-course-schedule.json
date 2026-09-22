@@ -1,0 +1,7 @@
+{
+  "slug": "12-course-schedule",
+  "title": "Course Schedule",
+  "pattern": "Graph cycle detection",
+  "code": "class Solution:\n    def canFinish(self, numCourses, prerequisites):\n        graph = {c: [] for c in range(numCourses)}\n        for course, prereq in prerequisites:\n            graph[course].append(prereq)\n        visiting = set()\n\n        def dfs(course):\n            if course in visiting:\n                return False\n            if graph[course] == []:\n                return True\n            visiting.add(course)\n            for prereq in graph[course]:\n                if not dfs(prereq):\n                    return False\n            visiting.remove(course)\n            graph[course] = []\n            return True\n\n        for course in range(numCourses):\n            if not dfs(course):\n                return False\n        return True\n",
+  "input": "numCourses = 4\nprerequisites = [[1,0],[2,1],[3,2]]"
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "06-merge-two-lists",
+  "title": "Merge Two Sorted Lists",
+  "pattern": "Linked list",
+  "code": "class Solution:\n    def mergeTwoLists(self, l1, l2):\n        dummy = ListNode(0)\n        tail = dummy\n        while l1 and l2:\n            if l1.val <= l2.val:\n                tail.next = l1\n                l1 = l1.next\n            else:\n                tail.next = l2\n                l2 = l2.next\n            tail = tail.next\n        tail.next = l1 or l2\n        return dummy.next\n",
+  "input": "l1 = [1,2,4]\nl2 = [1,3,4]"
+}

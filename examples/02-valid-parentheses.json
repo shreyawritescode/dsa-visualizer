@@ -1,0 +1,7 @@
+{
+  "slug": "02-valid-parentheses",
+  "title": "Valid Parentheses",
+  "pattern": "Stack",
+  "code": "class Solution:\n    def isValid(self, s):\n        stack = []\n        pairs = {\")\": \"(\", \"]\": \"[\", \"}\": \"{\"}\n        for ch in s:\n            if ch in pairs:\n                if not stack or stack[-1] != pairs[ch]:\n                    return False\n                stack.pop()\n            else:\n                stack.append(ch)\n        return not stack\n",
+  "input": "s = \"([{}])\""
+}

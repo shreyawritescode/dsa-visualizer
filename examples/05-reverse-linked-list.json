@@ -1,0 +1,7 @@
+{
+  "slug": "05-reverse-linked-list",
+  "title": "Reverse Linked List",
+  "pattern": "Linked list",
+  "code": "class Solution:\n    def reverseList(self, head):\n        prev = None\n        curr = head\n        while curr:\n            nxt = curr.next\n            curr.next = prev\n            prev = curr\n            curr = nxt\n        return prev\n",
+  "input": "head = [1,2,3,4,5]"
+}

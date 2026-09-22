@@ -1,0 +1,7 @@
+{
+  "slug": "03-longest-substring",
+  "title": "Longest Substring Without Repeating",
+  "pattern": "Sliding window",
+  "code": "class Solution:\n    def lengthOfLongestSubstring(self, s):\n        window = set()\n        left = 0\n        best = 0\n        for right in range(len(s)):\n            while s[right] in window:\n                window.remove(s[left])\n                left += 1\n            window.add(s[right])\n            best = max(best, right - left + 1)\n        return best\n",
+  "input": "s = \"abcabcbb\""
+}

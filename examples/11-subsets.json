@@ -1,0 +1,7 @@
+{
+  "slug": "11-subsets",
+  "title": "Subsets",
+  "pattern": "Backtracking",
+  "code": "class Solution:\n    def subsets(self, nums):\n        result = []\n        current = []\n\n        def backtrack(start):\n            result.append(current[:])\n            for i in range(start, len(nums)):\n                current.append(nums[i])\n                backtrack(i + 1)\n                current.pop()\n\n        backtrack(0)\n        return result\n",
+  "input": "nums = [1,2,3]"
+}

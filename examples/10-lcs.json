@@ -1,0 +1,7 @@
+{
+  "slug": "10-lcs",
+  "title": "Longest Common Subsequence",
+  "pattern": "2D dynamic programming",
+  "code": "class Solution:\n    def longestCommonSubsequence(self, text1, text2):\n        dp = [[0] * (len(text2) + 1) for _ in range(len(text1) + 1)]\n        for i in range(len(text1) - 1, -1, -1):\n            for j in range(len(text2) - 1, -1, -1):\n                if text1[i] == text2[j]:\n                    dp[i][j] = 1 + dp[i + 1][j + 1]\n                else:\n                    dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])\n        return dp[0][0]\n",
+  "input": "text1 = \"abcde\"\ntext2 = \"ace\""
+}

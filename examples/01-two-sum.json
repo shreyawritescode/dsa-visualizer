@@ -1,0 +1,7 @@
+{
+  "slug": "01-two-sum",
+  "title": "Two Sum",
+  "pattern": "Hash map",
+  "code": "class Solution:\n    def twoSum(self, nums, target):\n        seen = {}\n        for i, n in enumerate(nums):\n            complement = target - n\n            if complement in seen:\n                return [seen[complement], i]\n            seen[n] = i\n        return []\n",
+  "input": "nums = [2,7,11,15]\ntarget = 9"
+}

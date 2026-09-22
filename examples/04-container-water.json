@@ -1,0 +1,7 @@
+{
+  "slug": "04-container-water",
+  "title": "Container With Most Water",
+  "pattern": "Two pointers",
+  "code": "class Solution:\n    def maxArea(self, height):\n        left = 0\n        right = len(height) - 1\n        best = 0\n        while left < right:\n            area = min(height[left], height[right]) * (right - left)\n            best = max(best, area)\n            if height[left] < height[right]:\n                left += 1\n            else:\n                right -= 1\n        return best\n",
+  "input": "height = [1,8,6,2,5,4,8,3,7]"
+}

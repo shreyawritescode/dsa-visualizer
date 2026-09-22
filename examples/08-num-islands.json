@@ -1,0 +1,7 @@
+{
+  "slug": "08-num-islands",
+  "title": "Number of Islands",
+  "pattern": "Grid DFS",
+  "code": "class Solution:\n    def numIslands(self, grid):\n        rows = len(grid)\n        cols = len(grid[0])\n        count = 0\n\n        def sink(r, c):\n            if r < 0 or c < 0 or r >= rows or c >= cols or grid[r][c] != \"1\":\n                return\n            grid[r][c] = \"0\"\n            sink(r + 1, c)\n            sink(r - 1, c)\n            sink(r, c + 1)\n            sink(r, c - 1)\n\n        for r in range(rows):\n            for c in range(cols):\n                if grid[r][c] == \"1\":\n                    count += 1\n                    sink(r, c)\n        return count\n",
+  "input": "grid = [[\"1\",\"1\",\"0\",\"0\"],[\"1\",\"1\",\"0\",\"0\"],[\"0\",\"0\",\"1\",\"0\"],[\"0\",\"0\",\"0\",\"1\"]]"
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "13-kth-largest",
+  "title": "Kth Largest Element",
+  "pattern": "Min-heap",
+  "code": "import heapq\n\nclass Solution:\n    def findKthLargest(self, nums, k):\n        heap = []\n        for n in nums:\n            heapq.heappush(heap, n)\n            if len(heap) > k:\n                heapq.heappop(heap)\n        return heap[0]\n",
+  "input": "nums = [3,2,1,5,6,4]\nk = 2"
+}
