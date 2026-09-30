@@ -11,6 +11,12 @@
   status = 200
   force = true
 
+# Rewrite /static/* to /* because the frontend directory is deployed to the root
+[[redirects]]
+  from = "/static/*"
+  to = "/:splat"
+  status = 200
+
 # Fallback for Single Page Application routing (if applicable)
 [[redirects]]
   from = "/*"
